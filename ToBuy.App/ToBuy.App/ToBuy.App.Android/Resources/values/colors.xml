@@ -5,4 +5,5 @@
     <color name="colorPrimaryDark">#C75244</color>
     <color name="colorAccent">#CCAACB</color>
 	<color name="splash_background">#FF9689</color>
+	<color name="colorDark">#453331</color>
 </resources>

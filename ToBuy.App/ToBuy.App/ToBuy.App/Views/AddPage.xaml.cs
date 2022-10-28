@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ToBuy.App.Models;
+using ToBuy.App.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -24,7 +25,9 @@ namespace ToBuy.App.Views
                 var item = new ToBuyItem
                 {
                     Name = name.Text,
-                    Description = description.Text
+                    Description = description.Text,
+                    Amount = int.Parse(amount.Text),
+                    Tag = ((ItemTag)TagEntry.SelectedItem).Title
                 };
 
                 var result = await App.Context.InsertItemAsync(item);

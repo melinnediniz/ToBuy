@@ -1,6 +1,9 @@
 ToBuy.App.Droid.MainActivity, ToBuy.App.Android;crc6442338f094e98e82a.MainActivity
 ToBuy.App.Droid.MainActivity;crc6442338f094e98e82a.MainActivity
 tobuy.app.droid.MainActivity;crc6442338f094e98e82a.MainActivity
+ToBuy.App.Droid.SplashScreen, ToBuy.App.Android;crc6442338f094e98e82a.SplashScreen
+ToBuy.App.Droid.SplashScreen;crc6442338f094e98e82a.SplashScreen
+tobuy.app.droid.SplashScreen;crc6442338f094e98e82a.SplashScreen
 AndroidX.Activity.IOnBackPressedDispatcherOwner, Xamarin.AndroidX.Activity;androidx.activity.OnBackPressedDispatcherOwner
 AndroidX.Activity.IOnBackPressedDispatcherOwner;androidx.activity.OnBackPressedDispatcherOwner
 androidx.activity.OnBackPressedDispatcherOwner;androidx.activity.OnBackPressedDispatcherOwner

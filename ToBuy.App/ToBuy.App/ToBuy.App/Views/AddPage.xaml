@@ -1,17 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ToBuy.App.Data"
              Title="Adicionar Item"
              x:Class="ToBuy.App.Views.AddPage">
     <ContentPage.ToolbarItems>
         <ToolbarItem x:Name="btnSave" Text="Salvar" Clicked="BtnSave_Clicked"/>
     </ContentPage.ToolbarItems>
+    <ContentPage.BindingContext>
+        <local:TagView></local:TagView>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout Padding="15">
-            <Label Text="NOME *" FontSize="Medium" TextColor="{StaticResource colorPrimary}"/>
-            <Entry x:Name="name"/>
+            <Label Text="NOME" FontSize="Medium" TextColor="{StaticResource colorPrimary}"/>
+            <Entry x:Name="name" ClearButtonVisibility="WhileEditing"/>
+            
             <Label Text="DESCRIÇÃO" FontSize="Medium" TextColor="{StaticResource colorPrimary}"/>
             <Editor x:Name="description" HeightRequest="120"/>
+            
+            <Label Text="QUANTIDADE" FontSize="Medium" TextColor="{StaticResource colorPrimary}"/>
+            <Entry x:Name="amount" Keyboard="Numeric" ClearButtonVisibility="WhileEditing"/>
+
+            <Label Text="TIPO DE COMPRA" FontSize="Medium" TextColor="{StaticResource colorPrimary}"/>
+            <Picker ItemDisplayBinding="{Binding Title}"
+                    x:Name="TagEntry" Title="Selecionar Tipo" 
+                    ItemsSource="{Binding Tags}" 
+                    TextColor="{StaticResource colorDark}"/>
+            
+            <Button Text="ADICIONAR ITEM" Clicked="BtnSave_Clicked" Margin="20" BackgroundColor="{StaticResource colorPrimary}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

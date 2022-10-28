@@ -4,12 +4,15 @@
              Title="ToBuy"
              x:Class="ToBuy.App.Views.HomePage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Adicionar" Clicked="ToolbarItem_Clicked"/>
+        <ToolbarItem Text="Adicionar Item" Clicked="ToolbarItem_Clicked"/>
         
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView x:Name="itemList" HasUnevenRows="True">
-            <ListView.ItemTemplate>
+        <StackLayout>
+            <SearchBar x:Name="Search" Placeholder="Procurar Item" CancelButtonColor="DarkOrange" TextChanged="Search_TextChanged"/>
+            <Label x:Name="emptyView" Text="ADICIONE ITENS NA LISTA" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <ListView x:Name="itemList" HasUnevenRows="True" IsVisible="true">
+                <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
@@ -21,16 +24,33 @@
                                 CommandParameter="{Binding .}">
                                 
                             </MenuItem>
-                        </ViewCell.ContextActions>
-                        <StackLayout Padding="15,0">
-                            <Label Text="{Binding Name}" 
+                                <MenuItem 
+                                    x:Name="BtnEdit"
+                                    Text="Ver Descrição"
+                                    Clicked="BtnDescription_Clicked"
+                                    CommandParameter="{Binding .}">
+                                </MenuItem>
+                            </ViewCell.ContextActions>
+               
+                            <FlexLayout AlignItems="Center" Padding="15,15" AlignContent="Center">
+                                <Label Text="{Binding Name}" 
+                                   Margin="10, 0, 10, 0"
                                    TextColor="{StaticResource colorPrimary}" 
-                                   FontSize="Medium"/>
-                            <Label Text="{Binding Description}" />
-                        </StackLayout>
+                                   FontSize="Large"/>
+                                <Label Margin="0, 0, 4, 0" Text="Quantidade:" FontSize="Small" TextColor="#A76F68" />
+                                <Label Text="{Binding Amount}" TextColor="{StaticResource colorDark}"/>
+                                <Label 
+                                    FontSize="Micro"
+                                    Margin="10, 0, 10, 0" 
+                                    Text="{Binding Tag}" 
+                                    TextColor="#FFFF"
+                                    BackgroundColor="{StaticResource colorAccent}"
+                                    Padding="5"/>
+                        </FlexLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
